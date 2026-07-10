@@ -1,10 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import NavigationBar from './NavigationBar'
 
 const ViewEmployee = () => {
+
+const [data,changeData] =useState(
+    [
+        {"no":1,"name":"Rahul","ecode":1234,"phone":9744567890,"desg":"Manager"},
+        {"no":2,"name":"Alisa","ecode":6789,"phone":7558567890,"desg":"Tester"},
+        {"no":3,"name":"ALinda","ecode":3456,"phone":9834567890,"desg":"Developer"},
+        {"no":4,"name":"Lisa","ecode":8901,"phone":9874567890,"desg":"Data Analyst"},
+        {"no":5,"name":"Kevin","ecode":4567,"phone":7234567890,"desg":"HR Manager"},
+    ]
+)
+
     return (
         <div>
             <NavigationBar />
+            <h2 style={{ color: "red", textAlign: "center", fontFamily: "cursive" }}>
+                            EMPLOYEE DETAILS
+                        </h2>
             <table class="table">
                 <thead>
                     <tr>
@@ -16,76 +30,23 @@ const ViewEmployee = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>1234</td>
-                        <td>9788002134</td>
-                        <td>Manager</td>
+                   
+                   {data.map(
+
+                    (data,index) =>{
+                        return(
+                        <tr>
+                        <th scope="row">{data.no}</th>
+                        <td>{data.name}</td>
+                        <td>{data.ecode}</td>
+                        <td>{data.phone}</td>
+                        <td>{data.desg}</td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Rosalia</td>
-                        <td>1264</td>
-                        <td>9788007334</td>
-                        <td>Marketing</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Arjun</td>
-                        <td>9234</td>
-                        <td>6898002134</td>
-                        <td>Engineer</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Angelina</td>
-                        <td>5684</td>
-                        <td>8900021348</td>
-                        <td>Manager</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>Kevin</td>
-                        <td>2804</td>
-                        <td>8606002134</td>
-                        <td>CEO</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">6</th>
-                        <td>Hana</td>
-                        <td>7834</td>
-                        <td>7898002134</td>
-                        <td>Developer</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">7</th>
-                        <td>Manu</td>
-                        <td>1235</td>
-                        <td>7890002134</td>
-                        <td>Tester</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">8</th>
-                        <td>Lisa</td>
-                        <td>6834</td>
-                        <td>7556002134</td>
-                        <td>Developer</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">9</th>
-                        <td>Jiya</td>
-                        <td>1834</td>
-                        <td>9788002124</td>
-                        <td>Tester</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">10</th>
-                        <td>Miya</td>
-                        <td>2234</td>
-                        <td>8900800213</td>
-                        <td>Manager</td>
-                    </tr>
+                        )
+                    }
+
+                   )}
+                    
                 </tbody>
             </table>
 
